@@ -9,13 +9,13 @@ const Product = () => {
   const [showModal, setShowModal] = useState(false);
   const [allUserData, setAllUserData] = useState([])
   const getData = () => {
-    axios.get('http://localhost:5000/api/foodItem')
+    axios.get('https://menu-escape.onrender.com/api/foodItem')
     .then((res) => { setAllFoodItems(res.data) })
     .catch((err) => { console.log(err) })
   }
 
   const postData = () => {
-    axios.post('http://localhost:5000/api/foodItem', foodObj)
+    axios.post('https://menu-escape.onrender.com/api/foodItem', foodObj)
     .then((res)=>{alert(res.data); setShowModal(false)})
     .catch((err)=> alert(err))
   }

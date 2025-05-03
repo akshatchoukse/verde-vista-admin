@@ -9,7 +9,7 @@ const Order = () => {
   const [showModal, setShowModal] = useState(false);
   const [allOrders, setAllOrders] = useState([])
   const getData = () => {
-    axios.get('http://localhost:5000/api/order')
+    axios.get('https://menu-escape.onrender.com/api/order')
     .then((res) => { setAllOrders(res.data) })
     .catch((err) => { console.log(err) })
   }
@@ -17,7 +17,7 @@ const Order = () => {
   
 
   const handleOrder = (id, status)=>{
-    axios.put(`http://localhost:5000/api/order/${id}`, {
+    axios.put(`https://menu-escape.onrender.com/${id}`, {
       status : status
     }).then((res)=>{alert(res.data); getData()})
     .catch((err)=> alert(err))

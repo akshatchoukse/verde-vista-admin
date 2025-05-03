@@ -6,7 +6,7 @@ const Home = () => {
   useEffect(()=>{getData()}, [])
   const [allUsers, setAllUsers] = useState([])
   const getData = () => {
-    axios.get('http://localhost:5000/api/user')
+    axios.get('https://menu-escape.onrender.com/api/user')
     .then((res) => { setAllUsers(res.data) })
     .catch((err) => { console.log(err) })
   }
