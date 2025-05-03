@@ -17,7 +17,7 @@ const Order = () => {
   
 
   const handleOrder = (id, status)=>{
-    axios.put(`https://menu-escape.onrender.com/${id}`, {
+    axios.put(`https://menu-escape.onrender.com/api/order/${id}`, {
       status : status
     }).then((res)=>{alert(res.data); getData()})
     .catch((err)=> alert(err))
