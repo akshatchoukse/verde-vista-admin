@@ -1,12 +1,24 @@
 # React + Vite
+**MenuEscape - Admin Panel** is the backend interface where restaurant staff can manage and process orders that customers have placed through the **MenuEscape Frontend**. Built with **React.js**, **Tailwind CSS**, and **Axios**, it allows admins to view customer orders, update their status (cancel or complete the order), and manage the restaurant's offerings.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Order Management**: View all incoming customer orders, including customer details and ordered items.
+- **Order Status Update**: Admins can **mark orders as completed** or **cancel** orders with just one click.
+- **Menu Management**: Admins can add, update, or delete items from the restaurant's menu.
+- **Responsive Design**: Fully responsive interface for easy use on tablets, desktops, and mobile devices.
+- **Real-Time Data**: Updates orders and menu items in real-time.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have **Node.js** and **npm** installed on your machine. You can check if they're installed by running the following commands:
+
+```bash
+node -v
+npm -v
