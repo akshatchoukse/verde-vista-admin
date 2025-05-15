@@ -1,60 +1,69 @@
 import React from "react";
 import {
-  FaHome,
-  FaPlusCircle,
-  FaChartBar,
-  FaMoneyBillWave,
-  FaUsers,
-  FaHistory,
-  FaUniversity,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa";
+  FiHome,
+  FiCoffee,
+  FiClipboard,
+  FiSettings,
+  FiLogOut,
+} from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-gray-900 text-white w-full shadow-md z-50">
-      <ul className="flex justify-around py-2 border-t border-gray-700">
+    <nav className="bg-gray-100 text-gray-700 w-full shadow-md z-50">
+      <ul className="flex justify-around py-3 sm:py-4">
         <li
-          onClick={()=> navigate('/')}
-          className="flex flex-col items-center cursor-pointer p-2 hover:text-blue-400 transition duration-300"
+          onClick={() => navigate("/")}
+          className="flex flex-col items-center cursor-pointer p-2 hover:text-yellow-600 transition duration-300"
+          title="Dashboard"
+          role="button"
+          tabIndex={0}
         >
-          <FaHome className="text-2xl" />
-          <span className="text-sm mt-1">Dashboard</span>
+          <FiHome className="text-2xl sm:text-3xl" />
+          <span className="text-xs sm:text-sm mt-1 font-semibold">Dashboard</span>
         </li>
         <li
-          onClick={()=> navigate('/product')}
-          className="flex flex-col items-center cursor-pointer p-2 hover:text-blue-400 transition duration-300"
+          onClick={() => navigate("/product")}
+          className="flex flex-col items-center cursor-pointer p-2 hover:text-yellow-600 transition duration-300"
+          title="Food Item"
+          role="button"
+          tabIndex={0}
         >
-          <FaPlusCircle className="text-2xl" />
-          <span className="text-sm mt-1">Food Item</span>
+          <FiCoffee className="text-2xl sm:text-3xl" />
+          <span className="text-xs sm:text-sm mt-1 font-semibold">Food Item</span>
         </li>
         <li
-          onClick={()=> navigate('/order')}
-          className="flex flex-col items-center cursor-pointer p-2 hover:text-blue-400 transition duration-300"
+          onClick={() => navigate("/order")}
+          className="flex flex-col items-center cursor-pointer p-2 hover:text-yellow-600 transition duration-300"
+          title="Order"
+          role="button"
+          tabIndex={0}
         >
-          <FaPlusCircle className="text-2xl" />
-          <span className="text-sm mt-1">Order</span>
-        </li>
-        
-        <li
-         
-          className="flex flex-col items-center cursor-pointer p-2 hover:text-blue-400 transition duration-300"
-        >
-          <FaCog className="text-2xl" />
-          <span className="text-sm mt-1">Settings</span>
+          <FiClipboard className="text-2xl sm:text-3xl" />
+          <span className="text-xs sm:text-sm mt-1 font-semibold">Order</span>
         </li>
         <li
-         
-          className="flex flex-col items-center cursor-pointer p-2 hover:text-red-400 transition duration-300"
+          className="flex flex-col items-center cursor-pointer p-2 hover:text-cyan-600 transition duration-300"
+          title="Settings"
+          role="button"
+          tabIndex={0}
         >
-          <FaSignOutAlt className="text-2xl" />
-          <span className="text-sm mt-1">Logout</span>
+          <FiSettings className="text-2xl sm:text-3xl" />
+          <span className="text-xs sm:text-sm mt-1 font-semibold">Settings</span>
+        </li>
+        <li
+          className="flex flex-col items-center cursor-pointer p-2 hover:text-red-600 transition duration-300"
+          title="Logout"
+          role="button"
+          tabIndex={0}
+        >
+          <FiLogOut className="text-2xl sm:text-3xl" />
+          <span className="text-xs sm:text-sm mt-1 font-semibold">Logout</span>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
