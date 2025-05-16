@@ -1,23 +1,25 @@
 import React from "react";
-import { FiBell, FiUser } from "react-icons/fi";
+import { FaBell, FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <header className="flex flex-col sm:flex-row justify-between items-center bg-gray-100 text-gray-800 p-4 shadow-md">
-      <div className="flex items-center space-x-3 mb-3 sm:mb-0">
-        <h1 className="text-2xl font-semibold select-none">Admin Panel</h1>
+    <header className="flex justify-between items-center bg-white text-gray-800 px-8 py-4 shadow-md border-b border-gray-300">
+      <div className="flex items-center space-x-3">
+        <h1 className="text-2xl font-extrabold tracking-tight text-indigo-700">
+          Admin Panel
+        </h1>
       </div>
-      <div className="flex items-center space-x-6">
-        <FiBell
-          className="text-xl sm:text-2xl cursor-pointer transition-colors duration-300 hover:text-yellow-500"
-          title="Notifications"
-          aria-label="Notifications"
-        />
-        <FiUser
-          className="text-2xl sm:text-3xl cursor-pointer transition-colors duration-300 hover:text-cyan-500"
-          title="User Profile"
-          aria-label="User Profile"
-        />
+
+      <div className="flex items-center space-x-8">
+        <div className="relative group cursor-pointer">
+          <FaBell className="text-2xl text-gray-600 transition-colors duration-300 group-hover:text-indigo-600" />
+          <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center shadow-md">
+            1
+          </span>
+        </div>
+        <div className="cursor-pointer text-gray-600 hover:text-indigo-600 transition-colors duration-300">
+          <FaUserCircle className="text-3xl" />
+        </div>
       </div>
     </header>
   );

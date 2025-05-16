@@ -1,84 +1,88 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [allUsers, setAllUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const getData = () => {
-    setLoading(true);
-    setError(null);
-    axios
-      .get('https://menu-escape.onrender.com/api/user')
-      .then((res) => {
-        setAllUsers(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError('Failed to fetch user data.');
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
 
   useEffect(() => {
     getData();
   }, []);
 
+  const getData = () => {
+    axios
+      .get("https://menu-escape.onrender.com/api/user")
+      .then((res) => {
+        setAllUsers(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Customer Details</h1>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-50 via-white to-indigo-50 p-8">
+      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h1 className="text-3xl font-extrabold text-indigo-900 mb-8 text-center">
+          Customer Details
+        </h1>
 
-      {loading && (
-        <p className="mb-4 text-gray-600">Loading customer data...</p>
-      )}
+        <div className="bg-indigo-50 rounded-md p-6 shadow-inner">
+          <h2 className="text-xl font-semibold text-indigo-700 mb-6">Recent Customers</h2>
 
-      {error && (
-        <p className="mb-4 text-red-600 font-semibold">{error}</p>
-      )}
-
-      {!loading && !error && (
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6 overflow-x-auto">
-          <h2 className="text-xl font-bold mb-4">RECENT</h2>
-          <table
-            className="min-w-full border-collapse"
-            aria-label="Recent customer transactions"
-          >
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-3 px-4 text-left border-b">Name</th>
-                <th className="py-3 px-4 text-left border-b">Contact No.</th>
-                <th className="py-3 px-4 text-left border-b">Table</th>
-              </tr>
-            </thead>
-            <tbody>
-              {allUsers.length === 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse table-auto border border-gray-200 shadow-sm rounded-md">
+              <thead className="bg-indigo-100">
                 <tr>
-                  <td
-                    colSpan="3"
-                    className="py-4 px-4 text-center text-gray-500"
-                  >
-                    No customer data available.
-                  </td>
+                  <th className="border border-gray-300 px-6 py-3 text-left text-sm font-semibold text-indigo-700 uppercase tracking-wide">
+                    S.no
+                  </th>
+                  <th className="border border-gray-300 px-6 py-3 text-left text-sm font-semibold text-indigo-700 uppercase tracking-wide">
+                    Name
+                  </th>
+                  <th className="border border-gray-300 px-6 py-3 text-left text-sm font-semibold text-indigo-700 uppercase tracking-wide">
+                    Contact No.
+                  </th>
+                  <th className="border border-gray-300 px-6 py-3 text-left text-sm font-semibold text-indigo-700 uppercase tracking-wide">
+                    Table
+                  </th>
                 </tr>
-              ) : (
-                allUsers.map((user) => (
-                  <tr
-                    key={user._id || user.number || user.name}
-                    className="border-b hover:bg-gray-50"
-                  >
-                    <td className="py-2 px-4">{user.name}</td>
-                    <td className="py-2 px-4">+91 {user.number}</td>
-                    <td className="py-2 px-4">{user.tableNo}</td>
+              </thead>
+              <tbody>
+                {allUsers.length > 0 ? (
+                  allUsers.map((user, index) => (
+                    <tr
+                      key={user._id}
+                      className="hover:bg-indigo-50 transition-colors duration-150 cursor-pointer"
+                    >
+                      <td className="border border-gray-300 px-6 py-4 text-sm text-gray-700 whitespace-nowrap">
+                        {index + 1}
+                      </td>
+                      <td className="border border-gray-300 px-6 py-4 text-sm font-medium text-indigo-900">
+                        {user.name}
+                      </td>
+                      <td className="border border-gray-300 px-6 py-4 text-sm text-gray-800">
+                        +91 {user.number}
+                      </td>
+                      <td className="border border-gray-300 px-6 py-4 text-sm text-indigo-800 font-semibold">
+                        {user.tableNo}
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td
+                      colSpan={4}
+                      className="text-center py-8 text-gray-400 italic text-sm"
+                    >
+                      No customers found.
+                    </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
