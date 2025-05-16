@@ -64,7 +64,7 @@ const Home = () => {
                         +91 {user.number}
                       </td>
                       <td className="border border-gray-300 px-6 py-4 text-sm text-indigo-800 font-semibold">
-                        {user.tableNo}
+                        {user.table}
                       </td>
                     </tr>
                   ))
