@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import Product from "./pages/Product";
 import Order from "./pages/Order";
 
 function App() {
@@ -15,8 +14,7 @@ function App() {
         <main className="flex-grow p-6 bg-gray-100 overflow-auto">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/order" element={<Order />} />
+            <Route path="/booking-query" element={<Order />} />
           </Routes>
         </main>
       </div>

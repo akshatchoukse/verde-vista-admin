@@ -8,6 +8,7 @@ const Header = () => {
         <h1 className="text-2xl font-extrabold tracking-tight text-indigo-700">
           Admin Panel
         </h1>
+        <label className="text-[13px] font-extrabold tracking-tight text-indigo-700">Verde Vista</label>
       </div>
 
       <div className="flex items-center space-x-8">
