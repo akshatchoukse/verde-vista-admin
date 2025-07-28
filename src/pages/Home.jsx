@@ -28,7 +28,7 @@ const Home = () => {
     setLoading(true);
     setError(null);
     axios
-      .get("http://localhost:5090/api/gallery")
+      .get("https://verde-vista-backend.onrender.com/api/gallery")
       .then((res) => setAllImage(res.data))
       .catch((err) => {
         console.error(err);
@@ -45,8 +45,8 @@ const Home = () => {
 
     const method = isEditMode ? "put" : "post";
     const url = isEditMode
-      ? `http://localhost:5090/api/gallery/${editId}`
-      : "http://localhost:5090/api/gallery";
+      ? `https://verde-vista-backend.onrender.com/api/gallery/${editId}`
+      : "https://verde-vista-backend.onrender.com/api/gallery";
 
     axios[method](url, imageObj)
       .then((res) => {
@@ -63,7 +63,7 @@ const Home = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this image?")) {
       axios
-        .delete(`http://localhost:5090/api/gallery/${id}`)
+        .delete(`https://verde-vista-backend.onrender.com/api/gallery/${id}`)
         .then(() => getData())
         .catch((err) => alert("Error deleting image: " + err.message));
     }
