@@ -81,8 +81,8 @@ const Home = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+    <div className="p-4 md:p-6 bg-gray-100 min-h-screen">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-3xl font-bold">Image Management</h1>
         <button
           onClick={() => {
@@ -104,37 +104,42 @@ const Home = () => {
           <table className="min-w-full">
             <thead className="bg-gray-50">
               <tr>
-                {["S.No", "Title", "Category", "Image", "Actions"].map((header) => (
-                  <th
-                    key={header}
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                  >
-                    {header}
-                  </th>
-                ))}
+                {["S.No", "Title", "Category", "Image", "Actions"].map(
+                  (header) => (
+                    <th
+                      key={header}
+                      className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                    >
+                      {header}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {allImage.length === 0 && (
                 <tr>
-                  <td colSpan="5" className="py-4 px-6 text-center text-gray-500">
+                  <td
+                    colSpan="5"
+                    className="py-4 px-6 text-center text-gray-500"
+                  >
                     No Image found.
                   </td>
                 </tr>
               )}
               {allImage.map((item, index) => (
                 <tr key={item._id || index} className="hover:bg-gray-50">
-                  <td className="px-6 py-4">{index + 1}</td>
-                  <td className="px-6 py-4">{item.title}</td>
-                  <td className="px-6 py-4">{item.category}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">{index + 1}</td>
+                  <td className="px-4 py-4">{item.title}</td>
+                  <td className="px-4 py-4">{item.category}</td>
+                  <td className="px-4 py-4">
                     <img
-                      className="h-[10vh] object-cover rounded"
+                      className="h-[20vw] md:h-[10vh] object-cover rounded"
                       src={item.image}
                       alt={item.title}
                     />
                   </td>
-                  <td className="px-6 py-4 space-x-2">
+                  <td className="px-4 py-4 space-y-2 md:space-y-0 md:space-x-2">
                     <button
                       onClick={() => handleEdit(item)}
                       className="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500"
@@ -161,7 +166,7 @@ const Home = () => {
             className="absolute inset-0 bg-black opacity-50"
             onClick={() => setShowModal(false)}
           ></div>
-          <div className="bg-white rounded-lg p-6 w-[90%] max-w-3xl relative z-10">
+          <div className="bg-white rounded-lg p-6 w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto relative z-10">
             <h2 className="text-xl font-bold mb-4">
               {isEditMode ? "Edit Image" : "Add New Image"}
             </h2>
@@ -213,20 +218,20 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex justify-end space-x-3 mt-6">
+            <div className="flex flex-col md:flex-row justify-end md:space-x-3 space-y-2 md:space-y-0 mt-6">
               <button
                 onClick={() => {
                   setShowModal(false);
                   setIsEditMode(false);
                   setImageObj({ title: "", category: "", image: "" });
                 }}
-                className="px-5 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200"
+                className="px-5 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 w-full md:w-auto"
               >
                 Cancel
               </button>
               <button
                 onClick={postData}
-                className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 w-full md:w-auto"
               >
                 {isEditMode ? "Update" : "Save"}
               </button>
